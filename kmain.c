@@ -1,6 +1,20 @@
+#include "Drivers/framebuffer.h"
 
 
-int kmain(int arg1,int arg2,int arg3)
+
+
+
+
+
+
+//main function
+void kmain()
 {
-	return arg1+arg2+arg3;
+
+	fb_write_cell(0, 'A', FB_RED, FB_DARK_GREY);
+	fb_move_cursor(500);
+
 }
+
+
+   

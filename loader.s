@@ -24,15 +24,12 @@ align 4                         ; the code must be 4 byte aligned
 mov esp, kernel_stack + KERNEL_STACK_SIZE       ; point esp to the start of the
                                                 ; stack (end of memory area)
 loader:                         ; the loader label (defined as entry point in linker script)
-    mov eax, 0xCAFEBABE         ; place the number 0xCAFEBABE in the register eax
-
+    
     add  esp, 4
     push ebx                    ; multiboot info in ebx 
-
-    push dword 3            ; arg3
-    push dword 2            ; arg2
-    push dword 1            ; arg1
+    
     call kmain
-
+   
 .loop:
     jmp .loop                   ; loop forever
+
